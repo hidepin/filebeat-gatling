@@ -23,12 +23,17 @@ filebeat-gatling
   git clone https://github.com/hidepin/filebeat-gatling.git
   ```
 
+4. filebeat-gatling.ymlのパーミッションを変更
+
+  ```
+  chmod go-w filebeat-gatling/filebeat-gatling.yml
+  ```
+
 filebeatを実行
 ------------------------------------------------------------
 
 1. filebeatを実行
 
   ```
-  cd filebeast-gatling
   env HOSTS="'xxx.xxx.xxx.xxx:9200'" ./filebeat -c filebeat-gatling/filebeat-gatling.yml
   ```
