@@ -84,6 +84,7 @@ output.elasticsearch:
 ###  hosts: ["localhost:9200"]
   hosts: ["${HOSTS:'localhost:9200'}"]
   pipeline: "gatling"
+  bulk_max_size: 5000
 
   # Optional protocol and basic auth credentials.
   #protocol: "https"
