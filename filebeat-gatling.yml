@@ -19,7 +19,8 @@ filebeat.prospectors:
 
   # Paths that should be crawled and fetched. Glob based paths.
   paths:
-    - /var/log/*.log
+###    - /var/log/*.log
+    - ${HOME}/gatling-charts-highcharts-bundle-2.3.0/results/*/simulation.log
     #- c:\programdata\elasticsearch\logs\*
 
   # Exclude lines. A list of regular expressions to match. It drops the lines that are
@@ -29,6 +30,7 @@ filebeat.prospectors:
   # Include lines. A list of regular expressions to match. It exports the lines that are
   # matching any regular expression from the list.
   #include_lines: ["^ERR", "^WARN"]
+  include_lines: ["^REQUEST"]
 
   # Exclude files. A list of regular expressions to match. Filebeat drops the files that
   # are matching any regular expression from the list. By default, no files are dropped.
@@ -80,7 +82,9 @@ filebeat.prospectors:
 #-------------------------- Elasticsearch output ------------------------------
 output.elasticsearch:
   # Array of hosts to connect to.
-  hosts: ["localhost:9200"]
+###  hosts: ["localhost:9200"]
+  hosts: ["${HOSTS:'localhost:9200'}"]
+  pipeline: "gatling"
 
   # Optional protocol and basic auth credentials.
   #protocol: "https"
