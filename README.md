@@ -29,6 +29,12 @@ filebeat-gatling
   chmod go-w filebeat-gatling/filebeat-gatling.yml
   ```
 
+5. ingest node設定を追加
+
+  ```
+  curl -XPUT -H 'Content-Type: application/json' 'http://192.168.0.50:9200/_ingest/pipeline/gatling' -d @filebeat-gatling/gatling-pipeline.json
+  ```
+
 filebeatを実行
 ------------------------------------------------------------
 
